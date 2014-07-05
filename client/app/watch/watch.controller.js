@@ -27,21 +27,38 @@ angular.module('bayhackApp')
     webrtc.on('readyToCall', function () {
       // you can name it anything
       webrtc.joinRoom('testing');
-      setTimeout(function(){
+      $scope.$apply(function () {
+        $scope.status = "Start Recording...";
+      });
+      setTimeout(function () {
         var localMediaStream = webrtc.getLocalStream();
         videoRTC = RecordRTC(localMediaStream, { type: 'video' });
         videoRTC.startRecording();
         audioRTC = RecordRTC(localMediaStream, { type: 'audio' });
         audioRTC.startRecording();
-      },100);
+        $scope.$apply(function () {
+          $scope.status = "Recording...";
+        });
+      }, 100);
     });
 
-    $scope.stopRecord = function(){
-      videoRTC.stopRecording(function(videoURL){
-        audioRTC.stopRecording(function(audioURL) {
-          console.log("videoURL:"+videoURL);
-          console.log("audioURL:"+audioURL);
+    $scope.$on('$destroy', function () {
+      if (!window.confirm("Are you sure you want to leave this page? Your record will be gone.")) {
+        event.preventDefault();
+      }else{
+        socket.unsyncUpdates('chat');
+      }
+    });
+
+    $scope.stopRecord = function () {
+      videoRTC.stopRecording(function (videoURL) {
+        audioRTC.stopRecording(function (audioURL) {
+          console.log("videoURL:" + videoURL);
+          console.log("audioURL:" + audioURL);
           webrtc.leaveRoom();
+          $scope.$apply(function () {
+            $scope.status = "Stopped!";
+          });
         });
       });
     }
