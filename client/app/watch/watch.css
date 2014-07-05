@@ -1,7 +1,5 @@
 #chatmodule{
-
 }
-
 
 #chatbox{
   height:100px;
@@ -14,14 +12,12 @@
 .timestamp{
   font-size: 0.8em;
   color: darkgray;
-  
 }
 
 #remoteVideos video {
   height: 300px;
-
 }
+
 #localVideo {
   height: 170px;
- 
 }
