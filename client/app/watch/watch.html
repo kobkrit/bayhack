@@ -2,15 +2,20 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div id="remoteVideos"></div>
+        </div>
+        <div class="col-md-6">
+            <div id="whiteboard"></div>
+            fjsfdjgkfsd
+            kfsjgdfskfdjks
         </div>
     </div>
     <div class="row">
-        <div class="col-md-4">
+        <div id="student01" class="col-md-4">
             <video id="localVideo"></video>
         </div>
-        <div class="col-md-8">
+        <div id="chatmodule" class="col-md-8">
             <div id="chatbox">
                 <span ng-repeat="chat in chats"><b>{{chat.who}}</b>: {{chat.message}} <span class="timestamp">({{chat.timestamp|date:"dd/MM/yy HH:mm:ss"}})</span><br></span>
             </div>
