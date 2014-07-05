@@ -15,3 +15,21 @@
         max-width: 730px;
     }
 }
+
+#chatbox{
+  height:120px;
+  overflow:scroll;
+  overflow-x: hidden;
+}
+
+.timestamp{
+  font-size: 0.8em;
+  color: darkgray;
+}
+
+#remoteVideos video {
+ height: 300px;
+}
+#localVideo {
+  height: 170px;
+}
