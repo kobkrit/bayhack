@@ -1,9 +1,14 @@
 
 
-.col-md-8{
 
-	background-color: gray;
+
+#chatmodule{
+	height: 190px;
+  border-style: solid;
+  border-color: gray;
+
 }
+
 
 #chatbox{
   height:100px;
@@ -20,15 +25,16 @@
 }
 
 #remoteVideos video {
- height: 300px;
- border-radius: 4px;
+  height: 300px;
+  border-radius: 4px;
+  border-style: solid;
+  border-color: gray;
 }
 #localVideo {
   height: 190px;
-  /*width: 200px;*/
   border-style: solid;
   /*border-radius: 4px;*/
   border-color: gray;
   border-width: medium;
-  background-color: gray;
+  /*background-color: gray;*/
 }
