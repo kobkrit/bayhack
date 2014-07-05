@@ -19,9 +19,14 @@
 
 #remoteVideos video {
   height: 300px;
+top: 0px;
+left: 0px;
+right: 0px;
+bottom: 20px;
 
 }
 #localVideo {
   height: 170px;
+  border-style: solid;
  
 }
