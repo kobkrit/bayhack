@@ -1,32 +1,40 @@
 #chatmodule{
-
 }
-
 
 #chatbox{
   height:100px;
   overflow:scroll;
   overflow-x: hidden;
-  background-color: white;
+  background-color: #white;
   margin-top: 20px;
+  border-style: 170px;
+  border-color: #606060;
 }
 
 .timestamp{
   font-size: 0.8em;
   color: darkgray;
-  
 }
 
 #remoteVideos video {
   height: 300px;
+<<<<<<< HEAD
 top: 0px;
 left: 0px;
 right: 0px;
 bottom: 20px;
 
+=======
+>>>>>>> d05c3bf888dd286b03630dd0df64efea6a39702f
 }
+
 #localVideo {
   height: 170px;
-  border-style: solid;
+<<<<<<< HEAD
+  border-style: transparent;
+  border-color: #606060; 
+
  
+=======
+>>>>>>> d05c3bf888dd286b03630dd0df64efea6a39702f
 }

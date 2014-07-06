@@ -16,6 +16,7 @@
         <div id="chatmodule" class="col-md-8">
             <div id="chatbox">
                 <span ng-repeat="chat in chats"><b>{{chat.who}}</b>: {{chat.message}} <span class="timestamp">({{chat.timestamp|date:"dd/MM/yy HH:mm:ss"}})</span><br></span>
+                
             </div>
             <form class="thing-form">
                 <p class="input-group">
@@ -24,6 +25,7 @@
                     <button type="submit" class="btn btn-primary" ng-click="addChat()">Send</button>
                   </span>
                 </p>
+                
             </form>
         </div>
     </div>
@@ -31,7 +33,7 @@
         <div class="col-md-12 pull-center">
             {{status}}
         </div>
-        <div class="col-md-12">
+        <div class="col-md-12" ng-show="isTutor">
             <button class="btn btn-danger form-control" ng-click="stopRecord()">Close Session</button>
         </div>
     </div>
