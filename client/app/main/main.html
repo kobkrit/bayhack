@@ -2,31 +2,42 @@
 
 <header class="hero-unit" id="banner">
   <div class="container">
-    <h1>'Allo, 'Allo!</h1>
-    <p class="lead">Kick-start your next web app with Angular Fullstack</p>
-    <img src="assets/images/yeoman.png" alt="I'm Yeoman">
+    <h1>Welcome</h1>
+    <p class="lead">Need help? Choose our current online tutor below</p>
+    <!-- <img src="assets/images/yeoman.png" alt="I'm Yeoman"> -->
   </div>
 </header>
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">Features:</h1>
-      <ul class="nav nav-tabs nav-stacked col-lg-6" ng-repeat="thing in awesomeThings">
-        <li><a href="#" tooltip="{{thing.info}}">{{thing.name}}<button type="button" class="close" ng-click="deleteThing(thing)">&times;</button></a></li>
-      </ul>
+    <div class="col-lg-4">
+      <a href="detail">
+        <br>
+        <img src="/assets/images/teacher/biology.jpg" width="150" height="220">
+        <br>
+        Withawat
+      </a>
+    </div>
+    <div class="col-lg-4">
+      <img src="/assets/images/teacher/chemistry.JPG" width="150" height="220">
+    </div>
+    <div class="col-lg-4">
+      <img src="/assets/images/teacher/geography.png" width="150" height="220">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4">
+      <img src="/assets/images/teacher/history.jpg" width="150" height="220">
+    </div>
+    <div class="col-lg-4">
+      <img src="/assets/images/teacher/math.JPG" width="150" height="220">
+    </div>
+    <div class="col-lg-4">
+      <img src="/assets/images/teacher/physics.jpg" width="150" height="220">
     </div>
   </div>
 
-  <form class="thing-form">
-    <label>Syncs in realtime across clients</label>
-    <p class="input-group">
-      <input type="text" class="form-control" placeholder="Add a new thing here." ng-model="newThing">
-      <span class="input-group-btn">
-        <button type="submit" class="btn btn-primary" ng-click="addThing()">Add New</button>
-      </span>
-    </p>
-  </form>
+  
 </div>
 
 <footer class="footer">

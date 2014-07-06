@@ -76,6 +76,7 @@ module.exports = function(app) {
   //Nattaphong zone
   app.get('/pay', function(req,res,next){
     //req.body
+//    var BitPay  = require('bitpay');
     res.end("ok");
   });
 
