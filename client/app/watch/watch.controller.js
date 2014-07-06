@@ -4,11 +4,30 @@ angular.module('bayhackApp')
   .controller('WatchCtrl', function ($scope, $http, socket, Auth, $location) {
     $scope.isTutor = Auth.isTutor();
     $scope.uploading = false;
+    $scope.whiteboard = {info: ''};
 
     $http.get('/api/chats').success(function (chats) {
       $scope.chats = chats;
       socket.syncUpdates('chat', $scope.chats);
       scrollFn();
+    });
+
+    var whiteboardID = undefined;
+    $http.get('/api/whiteboards').success(function (whiteboards) {
+      whiteboardID = whiteboards[0]._id;
+      $scope.whiteboard = whiteboards[0];
+    });
+
+    $("#whiteboard").keypress(function(e){
+      $scope.$apply(function(){
+        setTimeout(function(){
+          $http.put('/api/whiteboards/' + whiteboardID, { name: 'Somebody', info: $scope.whiteboard.info});
+        }, 100);
+      });
+    });
+
+    socket.socket.on('whiteboard:save', function (item) {
+      $scope.whiteboard = item;
     });
 
     var webrtc = new SimpleWebRTC({
@@ -50,6 +69,7 @@ angular.module('bayhackApp')
 //        event.preventDefault();
 //      }else{
       socket.unsyncUpdates('chat');
+      socket.unsyncUpdates('whiteboard');
 //      }
     });
 
@@ -68,19 +88,19 @@ angular.module('bayhackApp')
     // XHR2/FormData
     function xhr(url, data, callback) {
       var request = new XMLHttpRequest();
-      request.onreadystatechange = function() {
+      request.onreadystatechange = function () {
         if (request.readyState == 4 && request.status == 200) {
           callback(request.responseText);
         }
       };
 
-      request.upload.onprogress = function(event) {
+      request.upload.onprogress = function (event) {
         progressBar.max = event.total;
         progressBar.value = event.loaded;
         progressBar.innerHTML = 'Upload Progress ' + Math.round(event.loaded / event.total * 100) + "%";
       };
 
-      request.upload.onload = function() {
+      request.upload.onload = function () {
         percentage.style.display = 'none';
         progressBar.style.display = 'none';
       };
@@ -108,9 +128,9 @@ angular.module('bayhackApp')
       };
 
       $scope.uploading = true;
-      $http.post('/upload', JSON.stringify(files)).success(function(uploads){
+      $http.post('/upload', JSON.stringify(files)).success(function (uploads) {
         $scope.uploading = false;
-        $location.path("/video/"+uploads);
+        $location.path("/video/" + uploads);
       });
     }
 

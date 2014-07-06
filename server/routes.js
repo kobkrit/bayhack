@@ -65,6 +65,7 @@ function ifMac(response, files) {
 
 module.exports = function(app) {
   // Insert routes below
+  app.use('/api/whiteboards', require('./api/whiteboard'));
   app.use('/api/videos', require('./api/video'));
   app.use('/api/chats', require('./api/chat'));
   app.use('/api/things', require('./api/thing'));

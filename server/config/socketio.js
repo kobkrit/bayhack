@@ -18,6 +18,7 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
+  require('../api/whiteboard/whiteboard.socket').register(socket);
   require('../api/video/video.socket').register(socket);
   require('../api/chat/chat.socket').register(socket);
   require('../api/thing/thing.socket').register(socket);

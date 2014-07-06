@@ -21,3 +21,8 @@
 #localVideo {
   height: 170px;
 }
+
+#whiteboard{
+  height: 250px;
+  width: 100%;
+}

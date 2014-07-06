@@ -7,6 +7,7 @@
 
 var Thing = require('../api/thing/thing.model');
 var User = require('../api/user/user.model');
+var Whiteboard = require('../api/whiteboard/whiteboard.model');
 
 Thing.find({}).remove(function () {
   Thing.create({
@@ -51,6 +52,17 @@ User.find({}).remove(function () {
       name: 'Admin',
       email: 'admin@test.com',
       password: 'test'
+    }, function () {
+      console.log('finished populating users');
+    }
+  );
+});
+
+Whiteboard.find({}).remove(function () {
+  Whiteboard.create({
+      name: 'Somebody',
+      info: '',
+      active: true
     }, function () {
       console.log('finished populating users');
     }

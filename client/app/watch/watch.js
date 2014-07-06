@@ -6,7 +6,6 @@ angular.module('bayhackApp')
       .state('watch', {
         url: '/watch',
         templateUrl: 'app/watch/watch.html',
-        controller: 'WatchCtrl',
-        authenticate: true
+        controller: 'WatchCtrl'
       });
   });

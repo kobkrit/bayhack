@@ -33,7 +33,6 @@ angular.module('bayhackApp')
 
     return {
       socket: socket,
-
       /**
        * Register listeners to sync an array with updates on a model
        *
