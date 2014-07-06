@@ -110,6 +110,17 @@ angular.module('bayhackApp')
         return currentUser.hasOwnProperty('role');
       },
 
+
+
+      /**
+       * Check if a user is a tutor
+       *
+       * @return {Boolean}
+       */
+      isTutor: function() {
+        return currentUser.role === 'tutor';
+      },
+
       /**
        * Check if a user is an admin
        *

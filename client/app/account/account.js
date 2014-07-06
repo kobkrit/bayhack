@@ -16,6 +16,7 @@ angular.module('bayhackApp')
       .state('settings', {
         url: '/settings',
         templateUrl: 'app/account/settings/settings.html',
-        controller: 'SettingsCtrl'
+        controller: 'SettingsCtrl',
+        authenticate: true
       });
   });
