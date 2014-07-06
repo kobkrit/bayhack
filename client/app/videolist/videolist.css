@@ -1,3 +1,15 @@
 .mini{
   height:100px;
 }
+
+.large{
+  font-size:3em;
+  line-height: 1em;
+  margin: 0px;
+}
+
+.mediumlarge{
+  font-size:2em;
+  line-height: 1em;
+  margin: 0px;
+}

@@ -3,16 +3,18 @@
     <div class="col-md-12">
         <h1>List of videos</h1>
         <div class="row" ng-repeat="video in videos">
-            <div class="col-md-3">
-                <video class="mini" ng-src="{{video.file}}" ></video>
-            </div>
-            <div class="col-md-9">
-                <b>{{video.name}}</b><br>
-                {{video.info}}<br>
-                by {{video.uploadBy}}<br>
-                Price: <span class="badge">mBTC {{video.price}}</span><br>
-                When: {{video.timestamp|date:"dd/MM/yy HH:mm:ss"}}
-            </div>
+            <a ng-href="/videoview/{{video._id}}">
+                <div class="col-md-3">
+                    <video class="mini" ng-src="{{video.file}}"></video>
+                </div>
+                <div class="col-md-9">
+                    <b>{{video.name}}</b><br>
+                    {{video.info}}<br>
+                    by {{video.uploadBy}}<br>
+                    Price: <span class="badge">mBTC {{video.price}}</span><br>
+                    When: {{video.timestamp|date:"dd/MM/yy HH:mm:ss"}}
+                </div>
+            </a>
         </div>
     </div>
 </div>
