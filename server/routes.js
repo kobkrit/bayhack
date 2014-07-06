@@ -65,6 +65,7 @@ function ifMac(response, files) {
 
 module.exports = function(app) {
   // Insert routes below
+  app.use('/api/videos', require('./api/video'));
   app.use('/api/chats', require('./api/chat'));
   app.use('/api/things', require('./api/thing'));
   app.use('/api/users', require('./api/user'));
@@ -77,8 +78,7 @@ module.exports = function(app) {
     res.end("ok");
   });
 
-  app.post('/upload', function(req,res,next){
-    console.dir(req.body);
+  app.post('/upload', function(req,res,next){;
     _upload(res, req.body.audio);
     _upload(res, req.body.video);
     ifMac(res, req.body);

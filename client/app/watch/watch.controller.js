@@ -1,8 +1,9 @@
 'use strict';
 
 angular.module('bayhackApp')
-  .controller('WatchCtrl', function ($scope, $http, socket, Auth) {
+  .controller('WatchCtrl', function ($scope, $http, socket, Auth, $location) {
     $scope.isTutor = Auth.isTutor();
+    $scope.uploading = false;
 
     $http.get('/api/chats').success(function (chats) {
       $scope.chats = chats;
@@ -64,6 +65,29 @@ angular.module('bayhackApp')
       }
     }
 
+    // XHR2/FormData
+    function xhr(url, data, callback) {
+      var request = new XMLHttpRequest();
+      request.onreadystatechange = function() {
+        if (request.readyState == 4 && request.status == 200) {
+          callback(request.responseText);
+        }
+      };
+
+      request.upload.onprogress = function(event) {
+        progressBar.max = event.total;
+        progressBar.value = event.loaded;
+        progressBar.innerHTML = 'Upload Progress ' + Math.round(event.loaded / event.total * 100) + "%";
+      };
+
+      request.upload.onload = function() {
+        percentage.style.display = 'none';
+        progressBar.style.display = 'none';
+      };
+      request.open('POST', url);
+      request.send(data);
+    }
+
     function submitToServer(audio, video) {
       // getting unique identifier for the file name
       var fileName = generateRandomString();
@@ -83,8 +107,10 @@ angular.module('bayhackApp')
         contents: video.dataURL
       };
 
+      $scope.uploading = true;
       $http.post('/upload', JSON.stringify(files)).success(function(uploads){
-        console.log(uploads);
+        $scope.uploading = false;
+        $location.path("/video/"+uploads);
       });
     }
 
