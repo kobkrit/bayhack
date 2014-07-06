@@ -1,0 +1,70 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container">
+    <h1>Add Video</h1>
+
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Video file</label>
+
+            <div class="col-sm-10">
+                <video ng-src="{{filePathFull}}" width="320" height="240" controls></video>
+                <br>
+                {{filePath}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputVideoName" class="col-sm-2 control-label">Name</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputVideoName" placeholder="Name of video" ng-model="i.name">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputInformation" class="col-sm-2 control-label">Information</label>
+
+            <div class="col-sm-10">
+                <textarea class="form-control" rows="3" ng-model="i.info" id="inputInformation"
+                          placeholder="Input video information here..."></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Uploader</label>
+
+            <div class="col-sm-10">
+                {{who.name}} ({{who.email}})
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Price-tier</label>
+
+            <div class="col-sm-10">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">mBTC</div>
+                        <select class='form-control' ng-model='i.price' ng-required='true'>
+                            <option>0.2</option>
+                            <option>0.4</option>
+                            <option>0.6</option>
+                            <option>0.8</option>
+                            <option>1.0</option>
+                            <option>1.2</option>
+                            <option>1.4</option>
+                            <option>1.6</option>
+                            <option>1.8</option>
+                            <option>1.9</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary" ng-click="addVideo()">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
